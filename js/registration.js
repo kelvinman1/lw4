@@ -3,15 +3,14 @@ function validEmail(email){
   return pattern.test(email);
 }
 
-class RegistrationForm {
-  constructor(formElement) {
-    this.form = formElement;
-    this.formEmail = $(formElement).find('.form_email').val();
-    this.formPassword = $(formElement).find('.form_password').val();
-    this.formPasswordRepeat = $(formElement).find('.form_password_repeat').val();
-    this.formCheckbox = $(formElement).find('.form_checkbox').prop('checked');
-  }
-  validate() {
+function RegistrationForm(formElement) {
+  this.form = formElement;
+  this.formEmail = $(formElement).find('.form_email').val();
+  this.formPassword = $(formElement).find('.form_password').val();
+  this.formPasswordRepeat = $(formElement).find('.form_password_repeat').val();
+  this.formCheckbox = $(formElement).find('.form_checkbox').prop('checked');
+  
+  this.validate = function () {
     if (!validEmail(this.formEmail)){
       this.errorMsg = 'Не корректный email!';
       return false;
@@ -34,10 +33,10 @@ class RegistrationForm {
     
     return true;
   }
-  success() {
+  this.success = function () {
     alert('Вы зарегистрированы.');
   }
-  error() {
+  this.error = function () {
     alert(this.errorMsg);
   }
 }
