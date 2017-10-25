@@ -8,6 +8,7 @@
     "gulp-uglify": "^3.0.0"
   },
   "devDependencies": {
+    "browser-sync": "^2.18.13",
     "gulp": "^3.9.1",
     "gulp-cssmin": "^0.2.0",
     "gulp-rename": "^1.2.2",
