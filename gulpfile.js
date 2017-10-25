@@ -3,6 +3,7 @@ var gulp = require('gulp'),
     cssmin = require('gulp-cssmin'),
     rename = require('gulp-rename'),
     inject = require('gulp-inject'),
+    gulpSequence = require('gulp-sequence'),
     gutil  = require('gulp-util');
   
 gulp.task('minify-js', function () {
@@ -32,6 +33,9 @@ gulp.task('html-build', function () {
   })
 });
 
-
-
+gulp.task('production', gulpSequence(
+    "minify-js",
+    "minify-css",
+    "html-build"
+));
 
