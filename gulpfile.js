@@ -7,7 +7,7 @@ var gulp = require('gulp'),
     gutil  = require('gulp-util');
   
 gulp.task('minify-js', function () {
-  gulp.src('js/*.js')
+  gulp.src('src/js/*.js')
   .pipe(uglify())
   .pipe(rename({suffix: '.min'}))
   .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
@@ -15,7 +15,7 @@ gulp.task('minify-js', function () {
 });
 
 gulp.task('minify-css', function () {
-  gulp.src('css/*.css')
+  gulp.src('src/css/*.css')
   .pipe(cssmin())
   .pipe(rename({suffix: '.min'}))
   .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
@@ -23,7 +23,7 @@ gulp.task('minify-css', function () {
 });
 
 gulp.task('html-build', function () {
-  gulp.src('*.html')
+  gulp.src('src/*.html')
   .pipe(gulp.dest('build/'))
   .on('end', function () {
     gulp.src('build/index.html')
